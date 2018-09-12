@@ -31,14 +31,24 @@ var processInfo = function()
         err = 1;
     }
 
-    for(cntr = 1; cntr <=3; cntr++)
+    if(numPets > 3){
+        numPets = 3;
+      }
+  
+    cntrFilled = 1;
+
+    for(cntr = 1; cntr <= 3; cntr++)
     {
+        if(cntrFilled > numPets){ break; }
+        
         var petname = '';
         var petid = "pet" + cntr;
         petname = $(petid).value;
+
         if(petname != "")
         {
-            pets += " Your Pet #" + cntr + " named " + petname + ". ";
+            pets += " Your Pet #" + cntrFilled + " named " + petname + ". ";
+            cntrFilled++;
         }
         
     }
